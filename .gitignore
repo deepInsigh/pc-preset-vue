@@ -1,0 +1,11 @@
+.DS_Store
+.DS_Store?
+.hbuilderx*
+.idea*
+*.local
+dist
+node_modules
+types/auto-imports.d.ts
+types/components.d.ts
+packages
+pnpm-workspace.yaml

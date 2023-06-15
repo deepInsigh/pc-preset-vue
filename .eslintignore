@@ -1,0 +1,10 @@
+/node_modules
+/dist
+/public
+Dockerfile
+*.md
+*.css
+*.scss
+*.woff
+*.ttf
+*.sh

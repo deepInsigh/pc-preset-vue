@@ -1,0 +1,27 @@
+.vxe-table--render-default .is--indeterminate.vxe-cell--checkbox {
+  color: $default-color !important;
+}
+.vxe-table--render-default .is--checked.vxe-cell--checkbox .vxe-checkbox--icon {
+  color: $default-color !important;
+}
+.vxe-table--render-default .is--indeterminate.vxe-cell--checkbox .vxe-checkbox--icon {
+  color: $default-color !important;
+}
+.vxe-table--render-default .vxe-cell--checkbox:not(.is--disabled):hover .vxe-checkbox--icon {
+  color: $default-color !important;
+}
+.vxe-table--render-default .is--checked.vxe-cell--radio {
+  color: $default-color !important;
+}
+.vxe-table--render-default .is--checked.vxe-cell--radio .vxe-radio--icon {
+  color: $default-color !important;
+}
+.vxe-table--render-default .vxe-cell--radio:not(.is--disabled):hover .vxe-radio--icon {
+  color: $default-color !important;
+}
+.vxe-sort--desc-btn.sort--active {
+  color: $default-color !important;
+}
+.vxe-sort--asc-btn.sort--active {
+  color: $default-color !important;
+}
