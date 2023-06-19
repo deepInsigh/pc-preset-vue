@@ -4,12 +4,14 @@
       <n-message-provider>
         <n-dialog-provider>
           <n-notification-provider>
-            <router-view v-slot="{ Component }">
-              <n-spin :show="getShowLoading">
-                <component :is="Component" />
-                <template #description>加载中....</template>
-              </n-spin>
-            </router-view>
+            <qt-provider :dictionary="useGetDictionary()">
+              <router-view v-slot="{ Component }">
+                <n-spin :show="getShowLoading">
+                  <component :is="Component" />
+                  <template #description>加载中....</template>
+                </n-spin>
+              </router-view>
+            </qt-provider>
           </n-notification-provider>
         </n-dialog-provider>
       </n-message-provider>
@@ -20,6 +22,7 @@
 <script setup lang="ts">
   import { zhCN, dateZhCN } from 'naive-ui';
   import { useGetLoading } from '@/hooks/useLoading';
+  import { useGetDictionary } from '@/hooks/useDictionary';
 
   const getShowLoading = useGetLoading();
 </script>
