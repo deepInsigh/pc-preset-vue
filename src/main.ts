@@ -4,6 +4,7 @@ import { router } from '@/routers';
 import { store } from '@/stores';
 import { i18n } from '@/locale';
 import { setToken } from '@/utils/auth';
+import { setLang } from '@/utils/lang';
 import { getPublicApi } from '@/api';
 import { useGetIDBDictionary } from '@/hooks/useDictionary';
 import App from './App.vue';
@@ -20,6 +21,7 @@ async function bootstrap(): Promise<void> {
 async function useVxeTable(): Promise<void> {
   if (import.meta.env.PROD) {
     await setToken(window.localStorage.getItem('SSID')!);
+    await setLang(window.localStorage.getItem('Language')!);
   }
   await getPublicApi();
   await useGetIDBDictionary();
