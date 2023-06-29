@@ -32,34 +32,28 @@
 
   const localeQt = computed(() => {
     const lang = unref(memoizedLang);
-    if (lang === 'zh_cn') {
-      return qtZhCN;
-    } else if (lang === 'zh_hk') {
-      return qtZhTW;
-    } else {
-      return qtEnUS;
-    }
+    const localeMap = {
+      en_us: qtEnUS,
+      zh_hk: qtZhTW,
+    };
+    return localeMap[lang] || qtZhCN;
   });
 
   const locale = computed(() => {
     const lang = unref(memoizedLang);
-    if (lang === 'zh_cn') {
-      return zhCN;
-    } else if (lang === 'zh_hk') {
-      return zhTW;
-    } else {
-      return enUS;
-    }
+    const localeMap = {
+      en_us: enUS,
+      zh_hk: zhTW,
+    };
+    return localeMap[lang] || zhCN;
   });
 
   const dateLocale = computed(() => {
     const lang = unref(memoizedLang);
-    if (lang === 'zh_cn') {
-      return dateZhCN;
-    } else if (lang === 'zh_hk') {
-      return dateZhTW;
-    } else {
-      return dateEnUS;
-    }
+    const locales = {
+      en_us: dateEnUS,
+      zh_hk: dateZhTW,
+    };
+    return locales[lang] || dateZhCN;
   });
 </script>
