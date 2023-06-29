@@ -23,7 +23,7 @@
   import { zhCN, dateZhCN, zhTW, dateZhTW, enUS, dateEnUS } from 'naive-ui';
   import { useGetLoading } from '@/hooks/useLoading';
   import { useGetDictionary } from '@/hooks/useDictionary';
-  import { zhCN as qtZhCN } from '@quantum-asia/qt-design/es';
+  import { zhCN as qtZhCN, zhHK as qtZhTW, enUS as qtEnUS } from '@quantum-asia/qt-design/es';
   import { getLang } from '@/utils/lang';
 
   const getShowLoading = useGetLoading();
@@ -32,7 +32,13 @@
 
   const localeQt = computed(() => {
     const lang = unref(memoizedLang);
-    return lang === 'zh_cn' ? qtZhCN : '';
+    if (lang === 'zh_cn') {
+      return qtZhCN;
+    } else if (lang === 'zh_hk') {
+      return qtZhTW;
+    } else {
+      return qtEnUS;
+    }
   });
 
   const locale = computed(() => {
