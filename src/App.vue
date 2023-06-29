@@ -31,18 +31,29 @@
   const memoizedLang = computed(getLang);
 
   const localeQt = computed(() => {
-    return unref(memoizedLang) === 'zh_cn' ? qtZhCN : '';
+    const lang = unref(memoizedLang);
+    return lang === 'zh_cn' ? qtZhCN : '';
   });
 
   const locale = computed(() => {
-    return unref(memoizedLang) === 'zh_cn' ? zhCN : unref(memoizedLang) === 'zh_hk' ? zhTW : enUS;
+    const lang = unref(memoizedLang);
+    if (lang === 'zh_cn') {
+      return zhCN;
+    } else if (lang === 'zh_hk') {
+      return zhTW;
+    } else {
+      return enUS;
+    }
   });
 
   const dateLocale = computed(() => {
-    return unref(memoizedLang) === 'zh_cn'
-      ? dateZhCN
-      : unref(memoizedLang) === 'zh_hk'
-      ? dateZhTW
-      : dateEnUS;
+    const lang = unref(memoizedLang);
+    if (lang === 'zh_cn') {
+      return dateZhCN;
+    } else if (lang === 'zh_hk') {
+      return dateZhTW;
+    } else {
+      return dateEnUS;
+    }
   });
 </script>

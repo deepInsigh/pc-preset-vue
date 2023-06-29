@@ -5,13 +5,14 @@ export function useSetDictionary(list: PromiseFulfilledResult<any>[]): void {
   const data = list.find(({ value }) => value?.keyValuePairs)?.value;
   if (data) {
     const { version, keyValuePairs } = data;
+    globalDataDictionary.value = keyValuePairs;
     saveData({ id: 'admin', version, keyValuePairs });
   }
 }
 
 export async function useGetIDBDictionary() {
-  const { keyValuePairs } = await getData('admin');
-  globalDataDictionary.value = keyValuePairs;
+  const data = await getData('admin');
+  globalDataDictionary.value = data?.keyValuePairs ?? globalDataDictionary;
 }
 
 export function useGetDictionary() {
