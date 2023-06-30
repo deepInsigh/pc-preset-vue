@@ -35,22 +35,17 @@ export const transform: InterceptorHooks = {
     if (res.status !== 200) return Promise.reject(res);
 
     const data = res.data as BaseApiResponse<any>;
-    if (!data.flag) {
-      if (res.config.requestOptions?.globalErrorMessage) {
-        notification.error({
-          content: '提示',
-          meta: data.errorMessage ?? '未知错误',
-          duration: 3000,
-        });
-      }
-      return Promise.reject(data);
-    }
+
     if (res.config.requestOptions?.globalSuccessMessage) {
       notification.success({
         content: '提示',
         meta: data.errorMessage,
         duration: 3000,
       });
+    }
+
+    if (!data.flag) {
+      return Promise.reject(data);
     }
     return data.data;
   },
