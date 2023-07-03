@@ -39,7 +39,7 @@ export const transform: InterceptorHooks = {
     if (res.config.requestOptions?.globalSuccessMessage) {
       notification.success({
         content: '提示',
-        meta: data.errorMessage,
+        meta: data.errorMessage ?? '操作成功',
         duration: 3000,
       });
     }
