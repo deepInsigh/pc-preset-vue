@@ -37,9 +37,11 @@ export const transform: InterceptorHooks = {
     const data = res.data as BaseApiResponse<any>;
 
     if (res.config.requestOptions?.globalSuccessMessage) {
-      notification.success({
+      const messageContent = data.flag ? '操作成功' : '操作失败';
+      const messageType = data.flag ? notification.success : notification.error;
+      messageType({
         content: '提示',
-        meta: data.errorMessage ?? '操作成功',
+        meta: data.errorMessage ?? messageContent,
         duration: 3000,
       });
     }
