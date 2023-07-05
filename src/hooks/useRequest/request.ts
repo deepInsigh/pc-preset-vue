@@ -8,7 +8,7 @@ export default class Request {
     baseURL: import.meta.env.PROD ? `//${location.host}` : '',
     timeout: 5000,
     requestOptions: {
-      globalSuccessMessage: false,
+      globalMessage: false,
       globalCheckToken: true,
       globalLoading: true,
     },

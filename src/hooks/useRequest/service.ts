@@ -36,7 +36,7 @@ export const transform: InterceptorHooks = {
 
     const data = res.data as BaseApiResponse<any>;
 
-    if (res.config.requestOptions?.globalSuccessMessage) {
+    if (res.config.requestOptions?.globalMessage) {
       const messageContent = data.flag ? '操作成功' : '操作失败';
       const messageType = data.flag ? notification.success : notification.error;
       messageType({
@@ -46,9 +46,6 @@ export const transform: InterceptorHooks = {
       });
     }
 
-    if (!data.flag) {
-      return Promise.reject(data);
-    }
     return data.data;
   },
   responseInterceptorCatch(err) {
@@ -66,7 +63,7 @@ export const transform: InterceptorHooks = {
       [503, '服务不可用'],
       [504, '网关超时'],
     ]);
-    const message = mapErrorStatus.get(err.response.status) || '请求出错，请稍后再试';
+    const message = mapErrorStatus.get(err.response?.status) || '请求出错，请稍后再试';
 
     notification.error({
       content: '提示',
