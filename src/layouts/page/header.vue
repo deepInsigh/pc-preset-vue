@@ -25,66 +25,6 @@
     {
       label: '租户',
       key: 'tenant',
-      children: [
-        {
-          label: '租户管理',
-          key: 'multiTenant',
-        },
-        {
-          label: '使用情况',
-          key: 'usage',
-        },
-        {
-          label: '数据库账户',
-          key: 'dbAccount',
-        },
-      ],
-    },
-    {
-      label: '用户管理',
-      key: 'users',
-    },
-    {
-      label: '试用管理',
-      key: 'accessControl',
-    },
-    {
-      label: '设置',
-      key: 'setUp',
-      children: [
-        {
-          label: '系统设置',
-          key: 'systemSetup',
-        },
-      ],
-    },
-    {
-      label: 'APP',
-      key: 'APP',
-      children: [
-        {
-          label: '系统版本',
-          key: 'systemInfo',
-        },
-        {
-          label: '扩展版本',
-          key: 'exSysInfo',
-        },
-      ],
-    },
-    // {
-    //   label: 'WebWork设置',
-    //   key: 'setWebwork',
-    // },
-    {
-      label: '自定义',
-      key: 'customize',
-      children: [
-        {
-          label: '租户自定义',
-          key: 'customTenant',
-        },
-      ],
     },
   ];
   const useOptions = [
