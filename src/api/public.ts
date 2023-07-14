@@ -3,13 +3,13 @@ import { getData } from '@/utils/idb/index';
 
 //获取所有数据字典
 export async function getDictionaries() {
-  const data = await getData('1');
+  const data = await getData('admin');
   const res = await get(
     `/SCM.Cloud.OpenApi/v2/TanantManageConvertValueSvc/GetConvertValueList?version='${data?.version}'`,
     {
       requestOptions: {
         globalLoading: false,
-        globalErrorMessage: false,
+        globalMessage: false,
       },
     },
   );
