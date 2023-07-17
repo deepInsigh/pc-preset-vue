@@ -46,6 +46,9 @@ export const transform: InterceptorHooks = {
       });
     }
 
+    if (!data.flag) {
+      return Promise.reject(data.errorMessage);
+    }
     return data.data;
   },
   responseInterceptorCatch(err) {
