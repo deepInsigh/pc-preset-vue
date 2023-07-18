@@ -13,15 +13,10 @@
 "windicss": ">=3.5.6"
 
 ```
+
 ### 项目说明
 
 ```
 1.修改 package.json和 stores 项目名称
-2.idb数据库名默认是admin-database，存储仓库默认存储id是admin，根据自己项目调整
 
 ```
-
-
-
-
-
