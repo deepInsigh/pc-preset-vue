@@ -6,6 +6,7 @@ import type { NavTab } from './types';
 
 const routeTitle = {
   home: '工作台',
+  i18nDemo: '国际化DEMO',
 };
 const whitePath: string[] = ['Redirect', '/login'];
 const whiteName: string[] = ['login', 'error404'];

@@ -5,8 +5,10 @@ import { store } from '@/stores';
 import { i18n } from '@/locale';
 import { setToken } from '@/utils/auth';
 import { setLang } from '@/utils/lang';
+import { createDatabaseByCheckUser } from '@/utils/idb';
 import { getPublicApi } from '@/api';
-
+import { useSetDictionary } from './hooks/useDictionary';
+import { useSetI18nData } from './hooks/useResource';
 import App from './App.vue';
 import 'virtual:uno.css';
 import '@/styles/index.scss';
@@ -14,6 +16,17 @@ import '@/styles/index.scss';
 async function bootstrap(): Promise<void> {
   const app = createApp(App);
   app.use(router).use(store).use(i18n).use(Menu).use(Tooltip);
+  try {
+    await createDatabaseByCheckUser();
+
+    await getPublicApi();
+
+    await useSetI18nData();
+
+    await useSetDictionary();
+  } catch (error) {
+    console.log(error);
+  }
   await router.isReady();
   app.mount('#app', true);
 }

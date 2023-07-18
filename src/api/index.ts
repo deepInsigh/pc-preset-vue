@@ -1,10 +1,9 @@
-import { getDictionaries } from './public';
-import { useSetDictionary } from '@/hooks/useDictionary';
-import type { SelectOptions } from '@/hooks/useDictionary/types';
+import { getPackTypeList } from './public';
+import { useSetNotDictionaryData } from '@/hooks/useDictionary';
 export async function getPublicApi(): Promise<void> {
   return new Promise(async resolve => {
-    Promise.allSettled([getDictionaries()]).then(res => {
-      useSetDictionary(res as PromiseFulfilledResult<SelectOptions>[]);
+    Promise.allSettled([getPackTypeList(), getPackTypeList()]).then(res => {
+      useSetNotDictionaryData(res as PromiseFulfilledResult<any>[]);
       resolve();
     });
   });

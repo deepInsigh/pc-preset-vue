@@ -63,6 +63,10 @@ export default ({ mode }) => {
       host: true,
       port: 10000,
       proxy: {
+        '/SCM': {
+          target: 'http://testxa.360scm.com',
+          changeOrigin: true,
+        },
         '/v2': {
           target: 'https://testxa.360scm.com',
           changeOrigin: true,
