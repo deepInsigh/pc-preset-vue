@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash-es';
 import Error from '@/views/error/404.vue';
-import { useGetNavTabs } from '@/hooks/useNavTabs';
+import { useGetNavTabs, useSetNavTabs } from '@/hooks/useNavTabs';
 import type { DefineComponent } from 'vue';
 import type { Router } from 'vue-router';
 import type { AddRoute } from './types';
@@ -45,4 +45,10 @@ export function useAddCacheRoute(router: Router) {
     name: 'error404',
     component: Error,
   });
+}
+
+export function useCloseCurrentRoute(name: String) {
+  const navTabs = useGetNavTabs();
+  const updatedNavTabs = navTabs.filter(navTab => navTab.options.key !== name);
+  useSetNavTabs(updatedNavTabs);
 }
