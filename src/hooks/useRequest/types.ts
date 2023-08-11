@@ -4,6 +4,7 @@ export type BaseApiResponse<T> = {
   flag: boolean;
   errorMessage: string;
   data: T;
+  errorCode: string;
 };
 
 export interface RequestOptions {

@@ -47,6 +47,10 @@ export const transform: InterceptorHooks = {
     }
 
     if (!data.flag) {
+      const code = parseInt(data.errorCode, 10);
+      if (code === 401 || code === 499) {
+        checkout();
+      }
       return Promise.reject(data.errorMessage);
     }
     return data.data;
