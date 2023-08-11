@@ -5,16 +5,3 @@
     </div>
   </div>
 </template>
-<script setup>
-  import { LogUploaderSDK } from '@/utils/log';
-  import { getToken } from '@/utils/auth';
-
-  const sdk = new LogUploaderSDK('https://testxa.360scm.com');
-
-  const logData = {
-    logLevel: 'Info',
-    content: '这是一条日志信息',
-    token: getToken(),
-  };
-  sdk.uploadLog(logData);
-</script>
