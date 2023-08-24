@@ -11,7 +11,8 @@
     <script type="module" src="/src/main.ts"></script>
     <script type="text/javascript">
       if ('%VITE_NODE_ENV%' === 'prod') {
-        document.domain = window.location.host.split('.').slice(-2).join('.');
+        const domain = window.location.hostname.split('.').slice(1).join('.');
+        document.domain = domain;
       }
     </script>
   </body>
