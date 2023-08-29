@@ -6,6 +6,7 @@ import { i18n } from '@/locale';
 import { setToken } from '@/utils/auth';
 import { setLang } from '@/utils/lang';
 import { getPublicApi } from '@/api';
+import { setGlobalEnv } from '@quantum-asia/qt-design/es/utils/legacy';
 
 import App from './App.vue';
 import 'virtual:uno.css';
@@ -20,7 +21,7 @@ async function bootstrap(): Promise<void> {
     await setLang(window.localStorage.getItem('Language')!);
   }
   await getPublicApi();
-
+  await setGlobalEnv({ env: import.meta.env.VITE_NODE_ENV, directory: '/dswl.wms.fe/#', router });
   await router.isReady();
   app.mount('#app', true);
   app.config.errorHandler = (err: Error) => {
