@@ -32,11 +32,18 @@ export const transform: InterceptorHooks = {
     useSetLoading(false);
 
     const res = result as ExpandAxiosResponse;
-    if (res.status !== 200) return Promise.reject(res);
+    if (res.status !== 200) {
+      return Promise.reject(res);
+    }
 
     const data = res.data as BaseApiResponse<any>;
 
-    if (res.config.requestOptions?.globalMessage) {
+    const { requestOptions } = res.config;
+    if (requestOptions?.globalRawData) {
+      return data;
+    }
+
+    if (requestOptions?.globalMessage) {
       const messageContent = data.flag ? '操作成功' : '操作失败';
       const messageType = data.flag ? notification.success : notification.error;
       messageType({
@@ -53,6 +60,7 @@ export const transform: InterceptorHooks = {
       }
       return Promise.reject(data.errorMessage);
     }
+
     return data.data;
   },
   responseInterceptorCatch(err) {

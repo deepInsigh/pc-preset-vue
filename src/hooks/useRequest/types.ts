@@ -11,6 +11,7 @@ export interface RequestOptions {
   globalMessage?: boolean;
   globalCheckToken?: boolean;
   globalLoading?: boolean;
+  globalRawData?: boolean;
 }
 
 export interface ExpandAxiosRequestConfig<D = any> extends AxiosRequestConfig<D> {

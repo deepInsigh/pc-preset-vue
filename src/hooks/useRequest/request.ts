@@ -11,6 +11,7 @@ export default class Request {
       globalMessage: false,
       globalCheckToken: true,
       globalLoading: true,
+      globalRawData: false,
     },
   };
   private _interceptorHooks?: InterceptorHooks;
