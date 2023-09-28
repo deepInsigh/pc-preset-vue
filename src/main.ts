@@ -14,16 +14,21 @@ import '@/styles/index.scss';
 
 async function bootstrap(): Promise<void> {
   const app = createApp(App);
+
   app.use(router).use(store).use(i18n).use(Menu).use(Tooltip);
 
   if (import.meta.env.PROD) {
     await setToken(window.localStorage.getItem('SSID')!);
+
     await setLang(window.localStorage.getItem('Language')!);
   }
   await getPublicApi();
   await setGlobalEnv({ env: import.meta.env.VITE_NODE_ENV, directory: '/dswl.wms.fe/#', router });
+
   await router.isReady();
+
   app.mount('#app', true);
+
   app.config.errorHandler = (err: Error) => {
     console.log(err);
   };

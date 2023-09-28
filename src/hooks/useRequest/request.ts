@@ -6,7 +6,7 @@ export default class Request {
   private _instance: AxiosInstance;
   private _defaultConfig: ExpandAxiosRequestConfig = {
     baseURL: import.meta.env.PROD ? `//${location.host}` : '',
-    timeout: 5000,
+    timeout: 0,
     requestOptions: {
       globalMessage: false,
       globalCheckToken: true,
