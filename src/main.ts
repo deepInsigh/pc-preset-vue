@@ -7,6 +7,7 @@ import { setToken } from '@/utils/auth';
 import { setLang } from '@/utils/lang';
 import { getPublicApi } from '@/api';
 import { setGlobalEnv } from '@quantum-asia/qt-design/es/utils/legacy';
+import { createVersionPolling } from '@quantum-asia/qt-design/es';
 
 import App from './App.vue';
 import 'virtual:uno.css';
@@ -21,6 +22,18 @@ async function bootstrap(): Promise<void> {
     await setToken(window.localStorage.getItem('SSID')!);
 
     await setLang(window.localStorage.getItem('Language')!);
+
+    createVersionPolling({
+      name: 'scm-designer',
+      onUpdate: (self: any): void => {
+        const result = confirm('页面有更新，点击确定刷新页面！');
+        if (result) {
+          self.onRefresh();
+        } else {
+          self.onCancel();
+        }
+      },
+    });
   }
   await getPublicApi();
   await setGlobalEnv({ env: import.meta.env.VITE_NODE_ENV, directory: '/dswl.wms.fe/#', router });
