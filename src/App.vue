@@ -23,7 +23,7 @@
   import { zhCN, dateZhCN, zhTW, dateZhTW, enUS, dateEnUS } from 'naive-ui';
   import { useGetLoading } from '@/hooks/useLoading';
   import { useGetDictionary } from '@/hooks/useDictionary';
-  import { zhCN as qtZhCN, zhHK as qtZhTW, enUS as qtEnUS } from '@quantum-asia/qt-design/es';
+  import { zhCN as qtZhCN, zhHK as qtZhTW, enUS as qtEnUS } from '@quantum-asia/qt-design';
   import { getLang } from '@/utils/lang';
 
   const getShowLoading = useGetLoading();
