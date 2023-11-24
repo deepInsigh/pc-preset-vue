@@ -8,7 +8,8 @@ export type BaseApiResponse<T> = {
 };
 
 export interface RequestOptions {
-  globalMessage?: boolean;
+  globalSuccessMessage?: boolean;
+  globalErrorMessage?: boolean;
   globalCheckToken?: boolean;
   globalLoading?: boolean;
   globalRawData?: boolean;

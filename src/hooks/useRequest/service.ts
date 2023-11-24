@@ -43,22 +43,27 @@ export const transform: InterceptorHooks = {
       return data;
     }
 
-    if (requestOptions?.globalMessage) {
-      const messageContent = data.flag ? '操作成功' : '操作失败';
-      const messageType = data.flag ? notification.success : notification.error;
-      messageType({
+    if (requestOptions?.globalSuccessMessage) {
+      notification.success({
         content: '提示',
-        meta: data.errorMessage ?? messageContent,
+        meta: data.errorMessage ?? '操作成功',
         duration: 3000,
       });
     }
 
     if (!data.flag) {
+      if (requestOptions?.globalErrorMessage) {
+        notification.error({
+          content: '提示',
+          meta: data.errorMessage ?? '操作失败',
+          duration: 3000,
+        });
+      }
       const code = parseInt(data.errorCode, 10);
       if (code === 401 || code === 499) {
         checkout();
       }
-      return Promise.reject(data.errorMessage);
+      return Promise.reject(data);
     }
 
     return data.data;
