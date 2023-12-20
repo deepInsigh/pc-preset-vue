@@ -39,8 +39,8 @@ export function useAddTabs(route: RouteLocationNormalizedLoaded): void {
 
   if (!isExists) {
     navList.push({
-      name: routeTitle[route.name as string] ?? route.name,
-      closable: (!route.meta?.affix as boolean) ?? true,
+      name: routeTitle[route.name as string],
+      closable: !route.meta?.affix as boolean,
       options: {
         fullPath: route.fullPath,
         path: route.path,

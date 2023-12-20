@@ -61,6 +61,7 @@
   import { useNotification } from 'naive-ui';
   import { validate } from '@/utils/function/form';
   import LogoIcon from '@/assets/icon/logo.svg';
+  import { getAllResources, workerInst } from '@/utils/idb/index';
   import type { FormInst } from 'naive-ui';
 
   const formData = ref({
@@ -96,7 +97,10 @@
       meta: '登录成功',
       duration: 3000,
     });
-    setToken(unref(formData).token);
+    await setToken(unref(formData).token);
+    await getAllResources().then(res => {
+      workerInst.postMessage({ data: res });
+    });
     router.replace('/home');
   }
 </script>
