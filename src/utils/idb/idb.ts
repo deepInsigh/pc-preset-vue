@@ -45,7 +45,9 @@ export async function keys(table: string): Promise<IDBValidKey[]> {
 
 export async function getAll(
   table: string,
-  query: IDBKeyRange | IDBValidKey,
+  query?: IDBKeyRange | IDBValidKey | null,
 ): Promise<Array<{ key: string; value: string }>> {
-  return (await dbPromise).getAll(table, query);
+  const db = await dbPromise;
+  const result = await db.getAll(table, query || null);
+  return result;
 }

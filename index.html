@@ -10,7 +10,7 @@
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
     <script type="text/javascript">
-      if ('%VITE_NODE_ENV%' === 'prod') {
+      if ('%VITE_NODE_ENV%' === 'prod' && window.self !== window.top) {
         const domain = window.location.hostname.split('.').slice(1).join('.');
         document.domain = domain;
       }

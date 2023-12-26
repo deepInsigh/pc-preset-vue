@@ -23,6 +23,7 @@ async function bootstrap(): Promise<void> {
     await setLang(window.localStorage.getItem('Language')!);
   }
   await getPublicApi();
+  // /dswl.wms.fe/# 外挂部署项目地址
   await setGlobalEnv({ env: import.meta.env.VITE_NODE_ENV, directory: '/dswl.wms.fe/#', router });
 
   await router.isReady();

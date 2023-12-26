@@ -4,7 +4,7 @@
       <n-message-provider>
         <n-dialog-provider>
           <n-notification-provider>
-            <qt-provider :dictionary="useGetDictionary()" :locale="localeQt">
+            <qt-provider :dictionary="useGetDictionary" :locale="localeQt">
               <router-view v-slot="{ Component }">
                 <n-spin :show="getShowLoading">
                   <component :is="Component" />
