@@ -1,6 +1,6 @@
 import { getAll } from '@/utils/idb/idb';
 import { get } from '@/hooks/useRequest';
-import { SelectOption, SelectOptions } from '@/hooks/useDictionary/types';
+import type { SelectOption, SelectOptions } from '@/hooks/useDictionary/types';
 
 // 获取私有字典
 export async function getPrivateSyscode() {
