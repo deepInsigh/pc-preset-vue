@@ -9,3 +9,4 @@ types/auto-imports.d.ts
 types/components.d.ts
 packages
 pnpm-workspace.yaml
+pnpm-lock.yaml
