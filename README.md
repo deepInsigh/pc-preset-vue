@@ -1,27 +1,11 @@
-### 使用 pnpm 安装项目
+### 脚手架
 
-### 组件依赖库
+vue-cli 提供一个官方命令行工具，可用于快速搭建大型单页应用。说白了就是一个自动帮你生成好项目目录，配置，以及各种依赖包的工具
 
-```
-"@icon-park/vue-next": ">=1.4.2",
-"naive-ui": ">=2.34.3",
-"date-fns": ">=2.29.3",
-"vue": ">=3.2.45",
-"lodash-es": ">=4.17.21",
-"vxe-table": ">=4.3.8",
-"xe-utils": ">=3.5.7",
-"windicss": ">=3.5.6"
+### 项目创建1
 
-```
-### 项目说明
+npx degit deepInsigh/pc-preset-vue my-project
 
-```
-1.修改 package.json和 stores 项目名称
-2.idb数据库名默认是admin-database，存储仓库默认存储id是admin，根据自己项目调整
+### 项目创建2
 
-```
-
-
-
-
-
+npx init-qtproject
